@@ -1,0 +1,24 @@
+<input #partyname>
+<input #partydescription>
+<button (click)="addParty(partyname.value, partydescription.value)">Add</button>
+<ul>
+	<li *for="#party of parties">
+		<span (click)="selectParty(party)">
+			{{ party.name }}
+			<br>
+			{{ party.description }}
+		</span>
+		<button (click)="remove(party)">X</button>
+	</li>
+</ul>
+
+<!--
+<party-details [partyid]="party._id"></party-details>
+-->
+Here you will see and change the details of the party:
+
+<input #selectedpartyname [value]="selectedParty.name">
+<input #selectedpartydescription [value]="selectedParty.description">
+
+<button (click)="saveParty(selectedpartyname.value, selectedpartydescription.value)">Save</button>
+<button (click)="selectParty()">Reset form</button>

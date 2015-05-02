@@ -1,4 +1,4 @@
-Plugin.registerSourceHandler('tpl', {
+Plugin.registerSourceHandler('ng.html', {
   isTemplate: true,
   archMatching: "web"
 }, function(compileStep) {
