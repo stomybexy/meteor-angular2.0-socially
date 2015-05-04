@@ -5,14 +5,24 @@ Package.describe({
   git: "https://github.com/Urigo/angular-meteor.git"
 });
 
+Package.registerBuildPlugin({
+  name : 'templates',
+  sources : [
+    'plugin/handler.js'
+  ]
+});
+
 Package.on_use(function (api) {
   api.versionsFrom('METEOR@0.9.0.1');
-
-  api.use('angular-ts', 'client');
 
   // Files to load in Client only.
   api.add_files([
     // Lib Files
+    'traceur-runtime.js',
+    'es6-module-loader@0.16.5.js',
+    'system@0.16.7.js',
     'angular2-bundle.js'
   ], 'client');
+
+  api.export('define');
 });
