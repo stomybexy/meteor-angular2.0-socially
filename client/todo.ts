@@ -1,12 +1,12 @@
 //TypeScript
 import {Component, View, bootstrap, For, If} from 'angular2/angular2';
-import * as add from 'client/exporter';
+import {add} from 'client/exporter';
 
 @Component({
   selector: 'todo-list'
 })
 @View({
-  templateUrl: 'client/todo.tpl',
+  templateUrl: 'client/todo.ng.html',
   directives: [For, If]
 })
 class TodoList {
