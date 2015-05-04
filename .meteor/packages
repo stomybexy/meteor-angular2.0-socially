@@ -8,3 +8,4 @@ meteor-platform
 autopublish
 insecure
 angular:angular2
+netanelgilad:angular2-typescript
