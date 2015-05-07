@@ -4,5 +4,10 @@
 
 <body>
 <parties-list>Loading...</parties-list>
-<script>System.import('client/parties-list');</script>
+<script>
+  System.config({
+    baseURL : '/'
+  });
+  System.import('client/parties-list');
+</script>
 </body>

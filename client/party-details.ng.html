@@ -1,0 +1,7 @@
+<div>
+  <input #selectedpartyname [value]="selectedParty.name">
+  <input #selectedpartydescription [value]="selectedParty.description">
+
+  <button (click)="saveParty(selectedpartyname.value, selectedpartydescription.value)">Save</button>
+  <button (click)="selectParty()">Reset form</button>
+</div>
