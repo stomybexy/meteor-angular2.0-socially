@@ -14,9 +14,9 @@ export class PartiesForm {
     constructor() {
         var fb = new FormBuilder();
         this.partiesForm = fb.group({
-            name: [''],
+            name: ['', Validators.required],
             description: [''],
-            location: ['']
+            location: ['', Validators.required]
         });
     }
 }
