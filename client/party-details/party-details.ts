@@ -6,6 +6,8 @@ import {Parties} from 'collections/parties';
 
 import {RouterLink} from 'angular2/router';
 
+import {RequireUser} from 'meteor-accounts';
+
 @Component({
     selector: 'party-details'
 })
@@ -13,6 +15,7 @@ import {RouterLink} from 'angular2/router';
     templateUrl: '/client/party-details/party-details.html',
     directives: [RouterLink]
 })
+@RequireUser()
 export class PartyDetails {
     party: Party;
 
