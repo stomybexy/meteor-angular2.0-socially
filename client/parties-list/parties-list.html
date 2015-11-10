@@ -1,5 +1,6 @@
 <div>
   <parties-form></parties-form>
+  <accounts-ui></accounts-ui>
   <ul>
     <li *ngFor="#party of parties">
       <a [routerLink]="['/PartyDetails', {partyId: party._id}]">{{party.name}}</a>
