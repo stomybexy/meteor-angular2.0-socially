@@ -1,5 +1,7 @@
 <div>
-  <parties-form></parties-form>
+  <parties-form style="float: left"></parties-form>
+  <input type="text" #searchtext placeholder="Search by Location">
+  <button type="button" (click)="search(searchtext.value)">Search</button>
   <accounts-ui></accounts-ui>
   <ul>
     <li *ngFor="#party of parties">
