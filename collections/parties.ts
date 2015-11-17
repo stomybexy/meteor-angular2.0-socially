@@ -1,1 +1,1 @@
-export var Parties = new Mongo.Collection('parties');
+export var Parties = new Mongo.Collection<Party>('parties');
