@@ -10,12 +10,16 @@ import {AccountsUI} from 'meteor-accounts-ui';
 
 import {MeteorComponent} from 'angular2-meteor';
 
+import {PaginationService, PaginatePipe, PaginationControlsCpm} from 'ng2-pagination';
+
 @Component({
-    selector: 'parties-list'
+    selector: 'parties-list',
+    viewProviders: [PaginationService]
 })
 @View({
     templateUrl: '/client/parties-list/parties-list.html',
-    directives: [PartiesForm, RouterLink, AccountsUI]
+    directives: [PartiesForm, RouterLink, AccountsUI, PaginationControlsCpm],
+    pipes: [PaginatePipe]
 })
 export class PartiesList extends MeteorComponent {
     parties: Mongo.Cursor<Party>;
