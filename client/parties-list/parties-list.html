@@ -4,11 +4,12 @@
   <button type="button" (click)="search(searchtext.value)">Search</button>
   <accounts-ui></accounts-ui>
   <ul>
-    <li *ngFor="#party of parties">
+    <li *ngFor="#party of parties | paginate:{currentPage: 1, itemsPerPage: pageSize, totalItems: 30}">
       <a [routerLink]="['/PartyDetails', {partyId: party._id}]">{{party.name}}</a>
       <p>{{party.description}}</p>
       <p>{{party.location}}</p>
       <button (click)="removeParty(party)">X</button>
     </li>
   </ul>
+  <pagination-controls></pagination-controls>
 </div>
