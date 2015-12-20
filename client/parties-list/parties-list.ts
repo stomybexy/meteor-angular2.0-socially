@@ -26,6 +26,7 @@ export class PartiesList extends MeteorComponent {
     pageSize: number = 10;
     curPage: ReactiveVar<number> = new ReactiveVar<number>(1);
     nameOrder: number = 1;
+    partiesSize: number = 0;
 
     constructor() {
         super();
@@ -39,6 +40,10 @@ export class PartiesList extends MeteorComponent {
                 this.parties = Parties.find({}, { sort: { name: this.nameOrder } });
             }, true);
         });
+
+        this.autorun(() => {
+            this.partiesSize = Counts.get('numberOfParties');
+        }, true);
     }
 
     removeParty(party) {
