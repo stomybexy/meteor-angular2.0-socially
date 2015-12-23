@@ -10,10 +10,13 @@ import {RequireUser} from 'meteor-accounts';
 
 import {MeteorComponent} from 'angular2-meteor';
 
+import {DisplayName} from 'client/lib/pipes';
+
 @Component({
     selector: 'party-details'
 })
 @View({
+    pipes: [DisplayName],
     templateUrl: '/client/party-details/party-details.html',
     directives: [RouterLink]
 })
