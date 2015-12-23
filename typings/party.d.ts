@@ -4,5 +4,6 @@ declare type Party = {
   description?: string,
   location: string,
   owner?: string,
-  public: boolean
+  public: boolean,
+  invited?: Array<string>
 }
