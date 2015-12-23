@@ -20,12 +20,17 @@ import {MeteorComponent} from 'angular2-meteor';
 @RequireUser()
 export class PartyDetails extends MeteorComponent {
     party: Party;
+    users: Mongo.Cursor<Object>;
 
     constructor(params: RouteParams) {
         super();
         var partyId = params.get('partyId');
         this.subscribe('party', partyId, () => {
             this.party = Parties.findOne(partyId);
+        }, true);
+
+        this.subscribe('uninvited', partyId, () => {
+          this.users = Meteor.users.find({_id: {$ne: Meteor.userId()}});
         }, true);
     }
 
