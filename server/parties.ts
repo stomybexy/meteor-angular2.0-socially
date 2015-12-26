@@ -8,7 +8,13 @@ function buildQuery(partyId: string, location: string): Object {
                 $and: [
                     { owner: this.userId },
                     { owner: { $exists: true } }
-                ]
+                ],
+            },
+            {
+              $and: [
+                { invited: this.userId },
+                { invited: { $exists: true } }
+              ]
             }
         ]
     };
