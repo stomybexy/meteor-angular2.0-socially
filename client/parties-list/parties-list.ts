@@ -12,6 +12,8 @@ import {MeteorComponent} from 'angular2-meteor';
 
 import {PaginationService, PaginatePipe, PaginationControlsCpm} from 'ng2-pagination';
 
+import {RsvpPipe} from 'client/lib/pipes';
+
 @Component({
     selector: 'parties-list',
     viewProviders: [PaginationService]
@@ -19,7 +21,7 @@ import {PaginationService, PaginatePipe, PaginationControlsCpm} from 'ng2-pagina
 @View({
     templateUrl: '/client/parties-list/parties-list.html',
     directives: [PartiesForm, RouterLink, AccountsUI, PaginationControlsCpm],
-    pipes: [PaginatePipe]
+    pipes: [PaginatePipe, RsvpPipe]
 })
 export class PartiesList extends MeteorComponent {
     parties: Mongo.Cursor<Party>;
