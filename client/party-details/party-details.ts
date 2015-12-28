@@ -96,4 +96,21 @@ export class PartyDetails extends MeteorComponent {
 
         return false;
     }
+
+    get isPublic() {
+        if (this.party) {
+            return this.party.public;
+        }
+
+        return false;
+    }
+
+    get isInvited() {
+        if (this.party && this.user) {
+            let invited = this.party.invited || [];
+            return invited.indexOf(this.user._id) !== -1;
+        }
+
+        return false;
+    }
 }
