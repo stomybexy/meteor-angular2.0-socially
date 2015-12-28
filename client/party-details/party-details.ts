@@ -6,7 +6,7 @@ import {Parties} from 'collections/parties';
 
 import {RouterLink} from 'angular2/router';
 
-import {RequireUser} from 'meteor-accounts';
+import {RequireUser, InjectUser} from 'meteor-accounts';
 
 import {MeteorComponent} from 'angular2-meteor';
 
@@ -21,9 +21,11 @@ import {DisplayName} from 'client/lib/pipes';
     directives: [RouterLink]
 })
 @RequireUser()
+@InjectUser()
 export class PartyDetails extends MeteorComponent {
     party: Party;
     users: Mongo.Cursor<Object>;
+    user: Meteor.User;
 
     constructor(params: RouteParams) {
         super();
@@ -85,5 +87,13 @@ export class PartyDetails extends MeteorComponent {
           alert('You successfully replied.');
         }
       });
+    }
+
+    get isOwner(): boolean {
+        if (this.party && this.user) {
+            return this.user._id === this.party.owner;
+        }
+
+        return false;
     }
 }
