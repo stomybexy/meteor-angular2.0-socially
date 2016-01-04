@@ -1,6 +1,8 @@
 import {Component, View} from 'angular2/core';
 
-import {FormBuilder, ControlGroup, Validators} from 'angular2/common';
+import {FormBuilder, Control, ControlGroup, Validators} from 'angular2/common';
+
+import {Parties} from 'collections/parties';
 
 @Component({
     selector: 'parties-form'
@@ -18,5 +20,19 @@ export class PartiesForm {
             description: [''],
             location: ['', Validators.required]
         });
+    }
+
+    addParty(party) {
+        if (this.partiesForm.valid) {
+            Parties.insert({
+                name: party.name,
+                description: party.description,
+                location: party.location
+            });
+
+            (<Control>this.partiesForm.controls['name']).updateValue('');
+            (<Control>this.partiesForm.controls['description']).updateValue('');
+            (<Control>this.partiesForm.controls['location']).updateValue('');
+        }
     }
 }
