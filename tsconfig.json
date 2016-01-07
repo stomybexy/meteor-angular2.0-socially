@@ -8,6 +8,7 @@
     "typings/angular2-meteor.d.ts",
     "typings/party.d.ts",
     "typings/meteor-accounts-ui.d.ts",
+    "typings/meteor-accounts.d.ts",
     "client/app.ts",
     "server/main.ts"
   ]
