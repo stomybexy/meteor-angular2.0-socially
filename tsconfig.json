@@ -7,6 +7,7 @@
   "files": [
     "typings/angular2-meteor.d.ts",
     "typings/party.d.ts",
+    "typings/meteor-accounts-ui.d.ts",
     "client/app.ts",
     "server/main.ts"
   ]
