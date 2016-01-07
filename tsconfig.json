@@ -1,5 +1,6 @@
 {
   "files": [
-    "typings/angular2-meteor.d.ts"
+    "typings/angular2-meteor.d.ts",
+    "typings/party.d.ts"
   ]
 }
