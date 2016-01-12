@@ -29,7 +29,9 @@ export class PartiesForm {
                 Parties.insert({
                     name: party.name,
                     description: party.description,
-                    location: party.location,
+                    location: {
+                        name: party.location
+                    },
                     public: party.public,
                     owner: Meteor.userId()
                 });
