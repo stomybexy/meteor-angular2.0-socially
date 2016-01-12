@@ -2,7 +2,11 @@ interface Party {
   _id?: string;
   name: string;
   description?: string;
-  location: string;
+  location: {
+    name: string;
+    lat?: number;
+    lng?: number;
+  };
   owner?: string;
   public: boolean;
   invited?: Array<string>;
