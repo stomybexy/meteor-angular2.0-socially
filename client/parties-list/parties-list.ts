@@ -16,13 +16,15 @@ import {PaginationService, PaginatePipe, PaginationControlsCpm} from 'ng2-pagina
 
 import {RsvpPipe} from 'client/lib/pipes';
 
+import {ANGULAR2_GOOGLE_MAPS_DIRECTIVES} from 'ng2-google-maps/core';
+
 @Component({
     selector: 'parties-list',
     viewProviders: [PaginationService]
 })
 @View({
     templateUrl: '/client/parties-list/parties-list.html',
-    directives: [PartiesForm, RouterLink, AccountsUI, PaginationControlsCpm],
+    directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES, PartiesForm, RouterLink, AccountsUI, PaginationControlsCpm],
     pipes: [PaginatePipe, RsvpPipe]
 })
 @InjectUser()
