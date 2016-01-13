@@ -10,6 +10,7 @@
     "typings/meteor-accounts-ui.d.ts",
     "typings/meteor-accounts.d.ts",
     "typings/ng2-pagination.d.ts",
+    "typings/ng2-google-maps/ng2-google-maps.d.ts",
     "client/app.ts",
     "server/main.ts"
   ]
