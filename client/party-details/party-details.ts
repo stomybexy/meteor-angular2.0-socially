@@ -12,13 +12,15 @@ import {MeteorComponent} from 'angular2-meteor';
 
 import {DisplayName} from 'client/lib/pipes';
 
+import {ANGULAR2_GOOGLE_MAPS_DIRECTIVES, MapMouseEvent} from 'ng2-google-maps/core';
+
 @Component({
     selector: 'party-details'
 })
 @View({
     pipes: [DisplayName],
     templateUrl: '/client/party-details/party-details.html',
-    directives: [RouterLink]
+    directives: [RouterLink, ANGULAR2_GOOGLE_MAPS_DIRECTIVES]
 })
 @RequireUser()
 @InjectUser()
@@ -26,6 +28,10 @@ export class PartyDetails extends MeteorComponent {
     party: Party;
     users: Mongo.Cursor<Object>;
     user: Meteor.User;
+
+    // Default center Palo Alto coordinates.
+    centerLat: Number = 37.4292; 
+    centerLng: Number = -122.1381;
 
     constructor(params: RouteParams) {
         super();
@@ -112,5 +118,18 @@ export class PartyDetails extends MeteorComponent {
         }
 
         return false;
+    }
+
+    get lat(): Number {
+        return this.party && this.party.location.lat;
+    }
+
+    get lng(): Number {
+        return this.party && this.party.location.lng;
+    }
+
+    mapClicked($event: MapMouseEvent) {
+        this.party.location.lat = $event.coords.lat;
+        this.party.location.lng = $event.coords.lng;
     }
 }
