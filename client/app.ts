@@ -10,6 +10,8 @@ import {PartyDetails} from 'client/party-details/party-details';
 
 import 'collections/methods';
 
+import {ANGULAR2_GOOGLE_MAPS_PROVIDERS} from 'ng2-google-maps/core';
+
 Accounts.ui.config({
   passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
@@ -27,4 +29,4 @@ Accounts.ui.config({
 ])
 class Socially {}
 
-bootstrap(Socially, [ROUTER_PROVIDERS, provide(APP_BASE_HREF, { useValue: '/' })]);
+bootstrap(Socially, [ROUTER_PROVIDERS, ANGULAR2_GOOGLE_MAPS_PROVIDERS, provide(APP_BASE_HREF, { useValue: '/' })]);
