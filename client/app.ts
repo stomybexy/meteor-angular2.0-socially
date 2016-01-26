@@ -12,6 +12,8 @@ import 'collections/methods';
 
 import {ANGULAR2_GOOGLE_MAPS_PROVIDERS} from 'ng2-google-maps/core';
 
+import {LoginPage, Login} from 'socially'; 
+
 Accounts.ui.config({
   passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
@@ -25,7 +27,8 @@ Accounts.ui.config({
 })
 @RouteConfig([
     { path: '/', as: 'PartiesList', component: PartiesList },
-    { path: '/party/:partyId', as: 'PartyDetails', component: PartyDetails }
+    { path: '/party/:partyId', as: 'PartyDetails', component: PartyDetails },
+    { path: '/login', as: 'LoginPage', component: LoginPage || Login }
 ])
 class Socially {}
 
