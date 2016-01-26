@@ -18,13 +18,15 @@ import {RsvpPipe} from 'client/lib/pipes';
 
 import {ANGULAR2_GOOGLE_MAPS_DIRECTIVES} from 'ng2-google-maps/core';
 
+import {Login} from 'socially';
+
 @Component({
     selector: 'parties-list',
     viewProviders: [PaginationService]
 })
 @View({
     templateUrl: '/client/parties-list/parties-list.html',
-    directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES, PartiesForm, RouterLink, AccountsUI, PaginationControlsCpm],
+    directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES, PartiesForm, RouterLink, Login, PaginationControlsCpm],
     pipes: [PaginatePipe, RsvpPipe]
 })
 @InjectUser()
