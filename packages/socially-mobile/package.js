@@ -13,6 +13,15 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('urigo:angular2-meteor');
+  api.use('okland:accounts-phone', 'web.cordova');
+
+  api.addFiles([
+    'client/login/login.html',
+    'client/login/login.ts',
+    'client/login/login-page.html',
+    'client/login/login-page.ts',
+    'system_config.js'
+    ], 'web.cordova');
 });
 
 Package.onTest(function(api) {
