@@ -12,13 +12,11 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
-  api.use('ecmascript');
-  api.addFiles('socially-mobile.js');
+  api.use('urigo:angular2-meteor');
 });
 
 Package.onTest(function(api) {
-  api.use('ecmascript');
+  api.use('urigo:angular2-meteor');
   api.use('tinytest');
   api.use('socially-mobile');
-  api.addFiles('socially-mobile-tests.js');
 });
