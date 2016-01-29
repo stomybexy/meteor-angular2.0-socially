@@ -13,9 +13,19 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('urigo:angular2-meteor');
+
+  api.addFiles([
+    'lib/pipes.ts',
+    'parties-form/parties-form.ts',
+    'parties-list/parties-list.ts',
+    'party-details/party-details.ts',
+    'main.ts',
+    'system_config.js'
+  ], 'client');
 });
 
 Package.onTest(function(api) {
   api.use('urigo:angular2-meteor');
   api.use('tinytest');
+  api.use('socially-client');
 });
