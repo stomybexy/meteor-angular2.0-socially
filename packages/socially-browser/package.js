@@ -22,6 +22,8 @@ Package.onUse(function(api) {
     'client/party-details/party-details.ts',
     'client/parties-form/parties-form.html',
     'client/parties-form/parties-form.ts',
+    'client/parties-list/parties-list.html',
+    'client/parties-list/parties-list.ts',
     'system_config.js'
   ], 'web.browser');
 });
