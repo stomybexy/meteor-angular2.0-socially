@@ -18,6 +18,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/login/login.html',
     'client/login/login.ts',
+    'client/party-details/party-details.html',
+    'client/party-details/party-details.ts',
     'system_config.js'
   ], 'web.browser');
 });
