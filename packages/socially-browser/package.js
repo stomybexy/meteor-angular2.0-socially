@@ -14,6 +14,9 @@ Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('urigo:angular2-meteor');
   api.use('barbatus:ng2-meteor-accounts-ui', 'web.browser');
+  api.use('barbatus:ng2-pagination', 'web.browser');
+  api.use('barbatus:ng2-google-maps', 'web.browser');
+  api.use('socially-client');
 
   api.addFiles([
     'client/login/login.html',
