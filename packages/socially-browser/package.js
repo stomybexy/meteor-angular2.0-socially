@@ -20,6 +20,8 @@ Package.onUse(function(api) {
     'client/login/login.ts',
     'client/party-details/party-details.html',
     'client/party-details/party-details.ts',
+    'client/parties-form/parties-form.html',
+    'client/parties-form/parties-form.ts',
     'system_config.js'
   ], 'web.browser');
 });
