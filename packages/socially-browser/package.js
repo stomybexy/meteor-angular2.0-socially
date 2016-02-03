@@ -26,6 +26,8 @@ Package.onUse(function(api) {
     'client/parties-list/parties-list.ts',
     'system_config.js'
   ], 'web.browser');
+
+  api.addFiles(['client/css/main.css'], 'web.browser');
 });
 
 Package.onTest(function(api) {
