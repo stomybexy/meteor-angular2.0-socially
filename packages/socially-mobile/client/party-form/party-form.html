@@ -1,0 +1,33 @@
+<ion-navbar *navbar>
+  <ion-title>
+    Create Party
+  </ion-title>
+</ion-navbar>
+
+<ion-content #content>
+  <form [ngFormModel]="partiesForm" #f="ngForm" (submit)="addParty(f.value)">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Name</ion-label>
+        <ion-input type="text" ngControl="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Description</ion-label>
+        <ion-input type="text" ngControl="description"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Location</ion-label>
+        <ion-input type="text" ngControl="location"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Public</ion-label>
+        <ion-checkbox ngControl="public">
+        </ion-checkbox>
+      </ion-item>
+
+      <div padding>
+        <button block>Create</button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>
