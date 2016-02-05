@@ -1,18 +1,23 @@
 
+import {NavController, Page} from 'ionic/ionic';
+
 import {Component} from 'angular2/core';
 
 import {Router} from 'angular2/router';
 
-@Component({
-  selector: 'login-page',
-  templateUrl: '/packages/socially-mobile/client/login/login-page.html'
+import {AccountsService, InjectUser} from 'meteor-accounts';
+
+@Page({
+  templateUrl: '/packages/socially-mobile/client/login/login-page.html',
+  providers: [AccountsService]
 })
 export class LoginPage {
   phoneNumber: string;
   verCode: string;
   phoneStage: boolean = true;
 
-  constructor(private router: Router) {}
+  constructor(private nav: NavController,
+              private accounts: AccountsService) {}
 
   requestVerification() {
     Accounts.requestPhoneVerification(this.phoneNumber);
@@ -22,8 +27,12 @@ export class LoginPage {
   verifyPhone() {
     Accounts.verifyPhone(this.phoneNumber, this.verCode, (err) => {
       if (!err) {
-        this.router.navigateByUrl('/');
+        this.nav.pop();
       }
     });
+  }
+
+  logout() {
+    this.accounts.logout();
   }
 }
