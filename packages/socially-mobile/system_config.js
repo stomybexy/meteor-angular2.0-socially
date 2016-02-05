@@ -1,7 +1,7 @@
 System.config({
   packages: {
     'socially': {
-      main: 'client/login/login',
+      main: 'main',
       format: 'register',
       map: {
         '.': System.normalizeSync('{socially-mobile}')
