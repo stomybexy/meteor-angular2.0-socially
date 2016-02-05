@@ -1,9 +1,27 @@
-<div *ngIf="phoneStage">
-  <input type="text" placeholder="Phone Number" [(ngModel)]="phoneNumber">
-  <button (click)="requestVerification">Send</button>
-</div>
+<ion-navbar *navbar>
+  <ion-title>
+    Login
+  </ion-title>
+</ion-navbar>
 
-<div *ngIf="!phoneStage">
-  <input type="text" placeholder="Enter Code" [(ngModel)]="verCode">
-  <button (click)="verifyPhone">Verify</button>
-</div>
+<ion-content #content>
+  <ion-list *ngIf="!user">
+    <ion-item *ngIf="phoneStage">
+      <ion-label floating>Phone Number</ion-label>
+      <ion-input type="text" [(ngModel)]="phoneNumber"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!phoneStage">
+      <ion-label floating>Enter Code</ion-label>
+      <ion-input type="text" [(ngModel)]="verCode"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="!user" padding>
+    <button *ngIf="phoneStage" (click)="requestVerification" block>Send</button>
+    <button *ngIf="!phoneStage" (click)="verifyPhone" block>Verify</button>
+  </div>
+
+  <div *ngIf="user" padding>
+    <button type="button" block (click)="logout()">LogOut</button>
+  </div>
+</ion-content>
