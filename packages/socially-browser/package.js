@@ -28,7 +28,8 @@ Package.onUse(function(api) {
     'client/parties-list/parties-list.html',
     'client/parties-list/parties-list.ts',
     'system_config.js',
-    'main.ts'
+    'main.ts',
+    'app.ts'
   ], 'web.browser');
 
   api.addFiles(['client/css/main.css'], 'web.browser');
