@@ -14,7 +14,7 @@
 
 <ul *ngIf="isOwner || isPublic">
   Users to invite:
-  <li *ngFor="#user of users">
+  <li *ngFor="#user of party.uninvited">
     <div>{{ user | displayName }}</div>
     <button (click)="invite(user)">Invite</button>
   </li>
@@ -27,7 +27,7 @@
   <input type="button" value="No" (click)="reply('no')">
 </div>
 
-<sebm-google-map 
+<!--<sebm-google-map 
   [latitude]="lat || centerLat"
   [longitude]="lng || centerLng"
   [zoom]="8"
@@ -37,4 +37,4 @@
     [latitude]="lat"
     [longitude]="lng">
   </sebm-google-map-marker>
-</sebm-google-map>
+</sebm-google-map>-->

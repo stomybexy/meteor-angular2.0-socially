@@ -1,5 +1,5 @@
 import {loadParties} from './load-parties';
-import './parties';
+import 'pubs/parties';
 import './users';
 import 'collections/methods';
 

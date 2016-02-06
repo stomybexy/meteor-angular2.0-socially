@@ -1,13 +1,18 @@
 
 import {Parties} from 'collections/parties';
 
+import {SmartMeteorComponent} from 'ng2-smart-sub';
+
 import {MeteorComponent} from 'angular2-meteor';
 
-export class PartiesList extends MeteorComponent {
+export class PartiesList extends SmartMeteorComponent {
     parties: Mongo.Cursor<Party>;
     pageSize: number = 10;
     curPage: ReactiveVar<number> = new ReactiveVar<number>(1);
-    nameOrder: ReactiveVar<number> = new ReactiveVar<number>(1);
+    // nameOrder: ReactiveVar<number> = new ReactiveVar<number>(1);
+    sort: ReactiveVar<Object> = new ReactiveVar<Object>({
+        name: 1
+    })
     partiesSize: number = 0;
     location: ReactiveVar<string> = new ReactiveVar<string>(null);
     user: Meteor.User;
@@ -15,14 +20,8 @@ export class PartiesList extends MeteorComponent {
     constructor() {
         super();
         this.autorun(() => {
-            let options = {
-                limit: this.pageSize,
-                skip: (this.curPage.get() - 1) * this.pageSize,
-                sort: { name: this.nameOrder.get() }
-            };
-            this.subscribe('parties', options, this.location.get(), () => {
-                this.parties = Parties.find({}, { sort: { name: this.nameOrder.get() } });
-            }, true);
+            console.log('Using smartPageSubscribe...');
+            this.smartPageSubscribe('parties', null,  this.location.get());
         });
 
         this.autorun(() => {
@@ -44,7 +43,10 @@ export class PartiesList extends MeteorComponent {
     }
 
     changeSortOrder(nameOrder: string) {
-        this.nameOrder.set(parseInt(nameOrder));
+        // this.nameOrder.set(parseInt(nameOrder));
+        this.sort.set({
+            name: parseInt(nameOrder)
+        })
     }
 
     isOwner(party: Party): boolean {

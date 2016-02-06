@@ -13,6 +13,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
   api.use('urigo:angular2-meteor');
+  api.use('jonatan:ng2-smart-pub-sub')
 
   api.addFiles([
     'lib/pipes.ts',

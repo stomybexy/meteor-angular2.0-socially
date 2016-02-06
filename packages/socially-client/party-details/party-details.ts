@@ -2,7 +2,9 @@ import {Parties} from 'collections/parties';
 
 import {MeteorComponent} from 'angular2-meteor';
 
-export class PartyDetails extends MeteorComponent {
+import {SmartMeteorComponent} from 'ng2-smart-sub';
+
+export class PartyDetails extends SmartMeteorComponent {
     party: Party;
     users: Mongo.Cursor;
     user: Meteor.User;
@@ -13,12 +15,7 @@ export class PartyDetails extends MeteorComponent {
 
     constructor(partyId: number) {
         super();
-        this.subscribe('party', partyId, () => {
-            this.autorun(() => {
-                this.party = Parties.findOne(partyId);
-                this.getUsers(this.party);
-            },   true);
-        });
+        this.smartSubscribe('party', partyId);
 
         this.subscribe('uninvited', partyId, () => {
             this.getUsers(this.party);
