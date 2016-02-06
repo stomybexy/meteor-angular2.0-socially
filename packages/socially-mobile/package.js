@@ -27,7 +27,9 @@ Package.onUse(function(api) {
     'client/parties-list/parties-list.ts',
     'client/css/main.css',
     'system_config.js',
-    'main.ts'
+    'main.ts',
+    'client/app.html',
+    'app.ts'
     ], 'web.cordova');
 });
 
