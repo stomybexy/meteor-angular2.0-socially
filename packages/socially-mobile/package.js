@@ -25,6 +25,7 @@ Package.onUse(function(api) {
     'client/party-form/party-form.ts',
     'client/parties-list/parties-list.html',
     'client/parties-list/parties-list.ts',
+    'client/css/main.css',
     'system_config.js',
     'main.ts'
     ], 'web.cordova');
